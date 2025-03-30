@@ -1,3 +1,5 @@
+@use "./mixins" as *;
+
 :root {
   /* COLORS */
   --color-peach: #e7816b;
@@ -52,7 +54,15 @@ svg {
 body {
   font-size: 16px;
   line-height: 26px;
-  margin: 0 30px;
+  margin: 0 24px;
+
+  @include mq(md) {
+    margin: 0 40px;
+  }
+
+  @include mq(lg) {
+    margin: 0 164px;
+  }
 }
 
 h1 {

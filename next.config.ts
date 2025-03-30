@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    reactCompiler: false,
+  },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com",
+        protocol: "https",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

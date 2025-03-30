@@ -1,12 +1,13 @@
-import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { buildConfig } from "payload";
-import sharp from "sharp";
-
-import { migrations } from "../../migrations";
+import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import {
   FixedToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
+import sharp from "sharp";
+
+import { migrations } from "../../migrations";
 import { MediaCollection } from "./collections/Media";
 import { PagesCollections } from "./collections/Page";
 import { HeaderGlobal } from "./globals/Header";
@@ -26,6 +27,19 @@ export default buildConfig({
     prodMigrations: migrations,
     schemaName: "designo",
   }),
+  plugins: [
+    vercelBlobStorage({
+      cacheControlMaxAge: 60 * 60 * 24 * 365, // 1 year
+      collections: {
+        media: {
+          generateFileURL: ({ filename }) =>
+            `https://l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com/${filename}`,
+        },
+      },
+      enabled: Boolean(process.env.BLOB_STORAGE_ENABLED) || false,
+      token: process.env.BLOB_READ_WRITE_TOKEN || "",
+    }),
+  ],
   sharp,
   typescript: {
     autoGenerate: true,

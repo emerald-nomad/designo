@@ -4,8 +4,9 @@ export const HeaderGlobal: GlobalConfig = {
   slug: "header",
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: "logo",
+      type: "upload",
+      relationTo: "media",
       required: true,
     },
     {
