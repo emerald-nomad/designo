@@ -27,7 +27,7 @@ export default function MobileNav({ navItems }: MobileNavProps) {
       setPreviousPathname(pathname);
       setShowNav(false);
     }
-  }, [pathname]);
+  }, [pathname, previousPathname]);
 
   function toggleNav() {
     setShowNav(!showNav);

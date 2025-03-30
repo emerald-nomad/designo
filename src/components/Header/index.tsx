@@ -1,6 +1,6 @@
 import { getPayload } from "payload";
 import config from "@/payload/payload.config";
-import { Media, Page } from "@/payload/payload-types";
+import { Media } from "@/payload/payload-types";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.scss";
