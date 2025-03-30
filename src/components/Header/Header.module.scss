@@ -1,3 +1,58 @@
+@use "../../styles//mixins" as *;
+
 .header {
   margin: 35px 0;
+  display: flex;
+  position: relative;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.nav-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 60;
+  left: -24px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(#1d1c1e, 0.2);
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  @include mq(md) {
+    display: none;
+  }
+
+  & ul {
+    background: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    padding: 48px 24px;
+    flex-direction: column;
+    gap: 32px;
+    list-style: none;
+
+    a {
+      text-decoration: none;
+      color: var(--color-white);
+      line-height: 25px;
+      letter-spacing: 2px;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+  }
 }
