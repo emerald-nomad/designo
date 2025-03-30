@@ -1,0 +1,16 @@
+@mixin mq($size) {
+  @if $size == lg {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}

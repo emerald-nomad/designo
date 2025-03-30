@@ -6,20 +6,32 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate:create": "dotenv -e .env.local -- cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload migrate:create"
   },
   "dependencies": {
+    "@payloadcms/db-vercel-postgres": "^3.31.0",
+    "@payloadcms/live-preview-react": "^3.31.0",
+    "@payloadcms/next": "^3.31.0",
+    "@payloadcms/richtext-lexical": "^3.31.0",
+    "@payloadcms/storage-vercel-blob": "^3.31.0",
+    "next": "15.2.4",
+    "payload": "^3.31.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "sass": "^1.86.0",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^8.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
