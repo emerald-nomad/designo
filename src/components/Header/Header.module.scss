@@ -56,3 +56,30 @@
     }
   }
 }
+
+.nav {
+  display: none;
+
+  & ul {
+    display: flex;
+    list-style: none;
+    gap: 42px;
+
+    a {
+      text-decoration: none;
+      color: var(--color-dark-grey);
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include mq(md) {
+    display: block;
+  }
+}

@@ -1,4 +1,11 @@
-import { GlobalConfig } from "payload";
+import { revalidateLayout } from "@/actions/revalidateLayout";
+import { GlobalAfterChangeHook, GlobalConfig } from "payload";
+
+const afterChangeHook: GlobalAfterChangeHook = async ({ doc }) => {
+  await revalidateLayout();
+
+  return doc;
+};
 
 export const HeaderGlobal: GlobalConfig = {
   slug: "header",
@@ -21,4 +28,7 @@ export const HeaderGlobal: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [afterChangeHook],
+  },
 };

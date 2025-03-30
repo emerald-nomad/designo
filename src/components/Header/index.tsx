@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import MobileNav from "./MobileNav";
+import Nav from "./Nav";
 
 export default async function Header() {
   const payload = await getPayload({ config });
@@ -20,7 +21,12 @@ export default async function Header() {
       <Link href="/" className={styles.logo}>
         <Image src={url!} alt={alt} width={200} height={24} />
       </Link>
-      {navItems && <MobileNav navItems={navItems} />}
+      {navItems && (
+        <>
+          <MobileNav navItems={navItems} />
+          <Nav navItems={navItems} />
+        </>
+      )}
     </header>
   );
 }
