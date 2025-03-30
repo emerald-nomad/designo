@@ -1,5 +1,9 @@
 import { getPayload } from "payload";
 import config from "@/payload/payload.config";
+import { notFound } from "next/navigation";
+
+export const revalidate = 900;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config });
@@ -22,8 +26,6 @@ export default async function Page({
   const payload = await getPayload({ config });
   const { slug } = await params;
 
-  console.log({ slug });
-
   const { docs } = await payload.find({
     collection: "pages",
     limit: 1,
@@ -35,6 +37,10 @@ export default async function Page({
   });
 
   const page = docs[0];
+
+  if (!page) {
+    return notFound();
+  }
 
   return <h1>{page.name}</h1>;
 }
