@@ -10,6 +10,9 @@
   gap: pxToRem(14);
   align-items: center;
   overflow: hidden;
+  background-image: url("/images/bg-pattern-hero-home.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
 
   img {
     object-fit: cover;
@@ -18,10 +21,13 @@
   }
 
   @include mq(md) {
+    $background-size: min(80vw, pxToRem(675));
     padding: pxToRem(60) pxToRem(60) pxToRem(450);
     margin: 0;
     border-radius: pxToRem(15);
     gap: pxToRem(8);
+    background-position-x: calc(20vw + 30%);
+    background-size: $background-size $background-size;
 
     img {
       top: pxToRem(250);
@@ -32,6 +38,11 @@
     padding: pxToRem(145) pxToRem(475) pxToRem(200) pxToRem(95);
     align-items: flex-start;
     gap: pxToRem(11);
+
+    $background-size: min(60vw, pxToRem(950));
+    background-size: $background-size $background-size;
+    background-position-x: calc(20vw + 60%);
+    background-position-y: top;
 
     img {
       top: pxToRem(-35);
