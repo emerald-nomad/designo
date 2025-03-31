@@ -27,6 +27,17 @@
       top: 250px;
     }
   }
+
+  @include mq(lg) {
+    padding: 145px 475px 200px 95px;
+    align-items: flex-start;
+    gap: 11px;
+
+    img {
+      top: -35px;
+      right: -75px;
+    }
+  }
 }
 
 .title {
@@ -40,6 +51,10 @@
     font-size: 48px;
     line-height: 48px;
   }
+
+  @include mq(lg) {
+    text-align: left;
+  }
 }
 
 .subTitle {
@@ -52,5 +67,11 @@
     font-size: 16px;
     font-weight: 26px;
     padding: 0 70px;
+  }
+
+  @include mq(lg) {
+    padding: 0;
+    padding-right: 100px;
+    text-align: left;
   }
 }
