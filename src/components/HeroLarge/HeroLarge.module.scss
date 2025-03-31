@@ -16,6 +16,17 @@
     position: absolute;
     top: 275px;
   }
+
+  @include mq(md) {
+    padding: 60px 60px 450px;
+    margin: 0;
+    border-radius: 15px;
+    gap: 8px;
+
+    img {
+      top: 250px;
+    }
+  }
 }
 
 .title {
@@ -24,6 +35,11 @@
   font-size: 32px;
   font-weight: var(--font-weight-medium);
   line-height: 36px;
+
+  @include mq(md) {
+    font-size: 48px;
+    line-height: 48px;
+  }
 }
 
 .subTitle {
@@ -31,4 +47,10 @@
   color: var(--color-white);
   text-align: center;
   line-height: 25px;
+
+  @include mq(md) {
+    font-size: 16px;
+    font-weight: 26px;
+    padding: 0 70px;
+  }
 }

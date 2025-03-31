@@ -54,14 +54,14 @@ svg {
 body {
   font-size: 16px;
   line-height: 26px;
-  margin: 0 24px;
+  padding: 0 24px;
 
   @include mq(md) {
-    margin: 0 40px;
+    padding: 0 40px;
   }
 
   @include mq(lg) {
-    margin: 0 164px;
+    padding: 0 164px;
   }
 }
 
