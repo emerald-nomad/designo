@@ -1,7 +1,7 @@
 @use "../../styles//mixins" as *;
 
 .header {
-  margin: 35px 0;
+  margin: pxToRem(35) 0;
   display: flex;
   // position: relative;
 }
@@ -22,7 +22,7 @@
 
 .mobile-nav {
   position: fixed;
-  top: 94px;
+  top: pxToRem(94);
   right: 0;
   left: 0;
   bottom: 0;
@@ -47,17 +47,17 @@
     background: var(--color-black);
     color: var(--color-white);
     display: flex;
-    padding: 48px 24px;
+    padding: pxToRem(48) pxToRem(24);
     flex-direction: column;
-    gap: 32px;
+    gap: pxToRem(32);
     list-style: none;
 
     a {
       text-decoration: none;
       color: var(--color-white);
-      line-height: 25px;
-      letter-spacing: 2px;
-      font-size: 24px;
+      line-height: pxToRem(25);
+      letter-spacing: pxToRem(2);
+      font-size: pxToRem(24);
       text-transform: uppercase;
     }
   }
@@ -69,14 +69,14 @@
   & ul {
     display: flex;
     list-style: none;
-    gap: 42px;
+    gap: pxToRem(42);
 
     a {
       text-decoration: none;
       color: var(--color-dark-grey);
-      font-size: 14px;
-      line-height: 14px;
-      letter-spacing: 2px;
+      font-size: pxToRem(14);
+      line-height: pxToRem(14);
+      letter-spacing: pxToRem(2);
       text-transform: uppercase;
 
       &:hover {

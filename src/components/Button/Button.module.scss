@@ -1,13 +1,15 @@
+@use "../../styles//mixins" as *;
+
 .button {
   border: none;
   background: var(--color-white);
   width: fit-content;
-  padding: 18px 24px;
-  font-size: 15px;
+  padding: pxToRem(18) pxToRem(24);
+  font-size: pxToRem(15);
   font-weight: var(--font-weight-medium);
-  letter-spacing: 1px;
+  letter-spacing: pxToRem(1);
   text-transform: uppercase;
-  border-radius: 8px;
+  border-radius: pxToRem(8);
   cursor: pointer;
   color: var(--color-dark-grey);
 
