@@ -18,13 +18,15 @@ export default function Button({
   return as == "button" ? (
     <button
       className={clsx([styles.button, color === "peach" && styles.peach])}
-      children={children}
-    />
+    >
+      {children}
+    </button>
   ) : (
     <Link
       className={clsx([styles.button, color === "peach" && styles.peach])}
       href={href!}
-      children={children}
-    />
+    >
+      {children}
+    </Link>
   );
 }
