@@ -14,7 +14,9 @@ export default function PageBuilder(props: PageBuilderProps) {
         return <HeroLarge key={item.id} content={item} />;
       default:
         return (
-          <h1 key={item.id}>Block type "{item.blockType}" not supported</h1>
+          <h1 key={item.id}>
+            Block type &quot;{item.blockType}&quot; not supported
+          </h1>
         );
     }
   }
