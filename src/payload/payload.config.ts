@@ -9,14 +9,15 @@ import sharp from "sharp";
 
 import { migrations } from "../../migrations";
 import { HeaderGlobal } from "./globals/Header";
+import { heroLarge } from "./block/HeroLarge";
 import { MediaCollection } from "./collections/Media";
 import { PagesCollections } from "./collections/Page";
-import { heroLarge } from "./block/HeroLarge";
+import { PageLinksCollection } from "./collections/PageLink";
 
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   globals: [HeaderGlobal],
-  collections: [MediaCollection, PagesCollections],
+  collections: [MediaCollection, PagesCollections, PageLinksCollection],
   blocks: [heroLarge],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
