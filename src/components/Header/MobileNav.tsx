@@ -29,18 +29,32 @@ export default function MobileNav({ navItems }: MobileNavProps) {
     }
   }, [pathname, previousPathname]);
 
-  useEffect(() => {
-    const body = document.querySelector("body");
+  // useEffect(() => {
+  //   const body = document.querySelector("body");
 
-    if (showNav) {
-      body?.classList.add("disable-scroll");
-    } else {
-      body?.classList.remove("disable-scroll");
-    }
-  }, [showNav]);
+  //   if (showNav) {
+  //     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  //     window.setTimeout(() => {
+  //       body?.classList.add("disable-scroll");
+  //     }, 5000);
+  //   } else {
+  //     body?.classList.remove("disable-scroll");
+  //   }
+  // }, [showNav]);
 
   function toggleNav() {
-    setShowNav(!showNav);
+    const body = document.querySelector("body");
+
+    if (!showNav) {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      window.setTimeout(() => {
+        body?.classList.add("disable-scroll");
+        setShowNav(true);
+      }, 50);
+    } else {
+      body?.classList.remove("disable-scroll");
+      setShowNav(false);
+    }
   }
 
   return (
