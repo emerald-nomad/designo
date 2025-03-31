@@ -29,6 +29,16 @@ export default function MobileNav({ navItems }: MobileNavProps) {
     }
   }, [pathname, previousPathname]);
 
+  useEffect(() => {
+    const body = document.querySelector("body");
+
+    if (showNav) {
+      body?.classList.add("disable-scroll");
+    } else {
+      body?.classList.remove("disable-scroll");
+    }
+  }, [showNav]);
+
   function toggleNav() {
     setShowNav(!showNav);
   }

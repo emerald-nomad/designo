@@ -84,3 +84,8 @@ h3 {
   line-height: 26px;
   letter-spacing: 5px;
 }
+
+.disable-scroll {
+  height: 100%;
+  overflow: hidden;
+}
