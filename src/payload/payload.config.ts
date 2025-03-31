@@ -8,14 +8,16 @@ import {
 import sharp from "sharp";
 
 import { migrations } from "../../migrations";
+import { HeaderGlobal } from "./globals/Header";
 import { MediaCollection } from "./collections/Media";
 import { PagesCollections } from "./collections/Page";
-import { HeaderGlobal } from "./globals/Header";
+import { heroLarge } from "./block/HeroLarge";
 
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   globals: [HeaderGlobal],
   collections: [MediaCollection, PagesCollections],
+  blocks: [heroLarge],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,

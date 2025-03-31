@@ -16,6 +16,12 @@ export const PagesCollections: CollectionConfig = {
       type: "text",
       required: true,
     },
+    {
+      name: "content",
+      type: "blocks",
+      blocks: [],
+      blockReferences: ["heroLarge"],
+    },
   ],
   versions: {
     drafts: true,

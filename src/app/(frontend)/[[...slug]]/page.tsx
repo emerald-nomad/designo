@@ -1,6 +1,7 @@
 import { getPayload } from "payload";
 import config from "@/payload/payload.config";
 import { notFound } from "next/navigation";
+import PageBuilder from "@/components/Pagebuilder";
 
 export const revalidate = 900;
 export const dynamicParams = true;
@@ -15,13 +16,13 @@ export async function generateStaticParams() {
     },
   });
 
-  return docs.map(({ slug }) => ({ slug }));
+  return docs.map(({ slug }) => ({ slug: [slug] }));
 }
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug?: string[] }>;
 }) {
   const payload = await getPayload({ config });
   const { slug } = await params;
@@ -31,7 +32,7 @@ export default async function Page({
     limit: 1,
     where: {
       slug: {
-        equals: `/${slug}`,
+        equals: slug ? `/${slug.join("/")}` : "/",
       },
     },
   });
@@ -42,5 +43,5 @@ export default async function Page({
     return notFound();
   }
 
-  return <h1>{page.name}</h1>;
+  return page.content && <PageBuilder content={page.content} />;
 }

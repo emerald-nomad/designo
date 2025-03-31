@@ -65,7 +65,9 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
-  blocks: {};
+  blocks: {
+    heroLarge: HeroLarge;
+  };
   collections: {
     media: Media;
     pages: Page;
@@ -121,6 +123,22 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "heroLarge".
+ */
+export interface HeroLarge {
+  title: string;
+  subTitle: string;
+  link: {
+    text: string;
+    url: string;
+    openInNewTab?: boolean | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroLarge';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
@@ -146,6 +164,7 @@ export interface Page {
   id: number;
   name: string;
   slug: string;
+  content?: HeroLarge[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -253,6 +272,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  content?: T | {};
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

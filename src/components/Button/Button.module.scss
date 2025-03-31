@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  background: var(--color-white);
+  width: fit-content;
+  padding: 18px 24px;
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &.peach {
+    color: var(--color-white);
+    background: var(--color-peach);
+  }
+
+  &:hover {
+    color: var(--color-white);
+    background: var(--color-light-peach);
+  }
+}
