@@ -1,0 +1,7 @@
+@use "@/styles/mixins" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(96);
+}

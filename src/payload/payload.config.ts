@@ -13,12 +13,13 @@ import { heroLarge } from "./block/HeroLarge";
 import { MediaCollection } from "./collections/Media";
 import { PagesCollections } from "./collections/Page";
 import { PageLinksCollection } from "./collections/PageLink";
+import { pageLinkList } from "./block/PageLinkList";
 
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   globals: [HeaderGlobal],
   collections: [MediaCollection, PagesCollections, PageLinksCollection],
-  blocks: [heroLarge],
+  blocks: [heroLarge, pageLinkList],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,

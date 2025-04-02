@@ -2,7 +2,11 @@ import { CollectionConfig } from "payload";
 
 export const PageLinksCollection: CollectionConfig = {
   slug: "pageLinks",
+  admin: {
+    useAsTitle: "name",
+  },
   fields: [
+    { name: "name", type: "text", required: true },
     {
       name: "page",
       type: "relationship",

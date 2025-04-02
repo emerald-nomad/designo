@@ -67,6 +67,7 @@ export interface Config {
   };
   blocks: {
     heroLarge: HeroLarge;
+    pageLinkList: PageLinkList;
   };
   collections: {
     media: Media;
@@ -141,6 +142,48 @@ export interface HeroLarge {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pageLinkList".
+ */
+export interface PageLinkList {
+  links: {
+    link: number | PageLink;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pageLinkList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pageLinks".
+ */
+export interface PageLink {
+  id: number;
+  name: string;
+  page: number | Page;
+  images: {
+    mobileImage: number | Media;
+    tabletImage: number | Media;
+    desktopImage: number | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  name: string;
+  slug: string;
+  content?: (HeroLarge | PageLinkList)[] | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
@@ -157,34 +200,6 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  name: string;
-  slug: string;
-  content?: HeroLarge[] | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pageLinks".
- */
-export interface PageLink {
-  id: number;
-  page: number | Page;
-  images: {
-    mobileImage: number | Media;
-    tabletImage: number | Media;
-    desktopImage: number | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -303,6 +318,7 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "pageLinks_select".
  */
 export interface PageLinksSelect<T extends boolean = true> {
+  name?: T;
   page?: T;
   images?:
     | T
