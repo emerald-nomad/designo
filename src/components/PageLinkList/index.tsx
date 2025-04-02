@@ -1,11 +1,9 @@
 import {
   PageLinkList as IPageLinkList,
-  Page,
   PageLink,
 } from "@/payload/payload-types";
 
 import styles from "./PageLinkList.module.scss";
-import Link from "next/link";
 import PageLinkListItem from "./PageLinkListItem";
 
 interface PageLinkListProps {

@@ -160,6 +160,7 @@ export interface PageLinkList {
 export interface PageLink {
   id: number;
   name: string;
+  alt: string;
   page: number | Page;
   images: {
     mobileImage: number | Media;
@@ -319,6 +320,7 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface PageLinksSelect<T extends boolean = true> {
   name?: T;
+  alt?: T;
   page?: T;
   images?:
     | T

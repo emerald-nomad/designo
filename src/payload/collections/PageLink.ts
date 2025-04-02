@@ -7,6 +7,7 @@ export const PageLinksCollection: CollectionConfig = {
   },
   fields: [
     { name: "name", type: "text", required: true },
+    { name: "alt", type: "text", required: true },
     {
       name: "page",
       type: "relationship",
