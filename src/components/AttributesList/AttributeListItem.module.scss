@@ -1,0 +1,62 @@
+@use "@/styles/mixins" as *;
+
+.attributes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: pxToRem(80);
+  padding: 0;
+
+  @include mq(md) {
+    gap: pxToRem(32);
+  }
+
+  @include mq(lg) {
+    flex-direction: row;
+    gap: pxToRem(30);
+  }
+}
+
+.attributes-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-dark-grey);
+  gap: pxToRem(48);
+  text-align: center;
+
+  @include mq(md) {
+    gap: pxToRem(48);
+    flex-direction: row;
+    text-align: left;
+  }
+
+  @include mq(lg) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(32);
+
+  @include mq(md) {
+    gap: pxToRem(16);
+  }
+
+  @include mq(lg) {
+    gap: pxToRem(32);
+  }
+}
+
+.title {
+  color: var(--color-dark-grey);
+}
+
+.description {
+  font-size: pxToRem(16);
+  line-height: pxToRem(26);
+}

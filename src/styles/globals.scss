@@ -53,8 +53,6 @@ svg {
 
 body {
   font-size: clamp(2rem, 6vw + 1rem, 3rem);
-  // line-height: 26px;
-  // padding: 0 24px;
   line-height: pxToRem(26);
   padding: 0 pxToRem(24);
 

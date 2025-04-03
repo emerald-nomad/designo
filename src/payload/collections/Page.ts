@@ -20,7 +20,7 @@ export const PagesCollections: CollectionConfig = {
       name: "content",
       type: "blocks",
       blocks: [],
-      blockReferences: ["heroLarge", "pageLinkList"],
+      blockReferences: ["attributesList", "heroLarge", "pageLinkList"],
     },
   ],
   versions: {

@@ -3,6 +3,7 @@ import HeroLarge from "../HeroLarge";
 import PageLinkList from "../PageLinkList";
 
 import styles from "./Pagebuilder.module.scss";
+import AttributesList from "../AttributesList";
 
 interface PageBuilderProps {
   content: Page["content"];
@@ -13,6 +14,8 @@ export default function PageBuilder(props: PageBuilderProps) {
 
   function renderBlock(item: (typeof content)[0]) {
     switch (item.blockType) {
+      case "attributesList":
+        return <AttributesList key={item.id} content={item} />;
       case "heroLarge":
         return <HeroLarge key={item.id} content={item} />;
       case "pageLinkList":
