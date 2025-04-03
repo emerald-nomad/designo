@@ -1,4 +1,4 @@
-@use "../../styles//mixins" as *;
+@use "@/styles//mixins" as *;
 
 .hero-large {
   position: relative;
@@ -25,7 +25,7 @@
     padding: pxToRem(60) pxToRem(60) pxToRem(450);
     margin: 0;
     border-radius: pxToRem(15);
-    gap: pxToRem(8);
+    gap: pxToRem(23);
     background-position-x: calc(20vw + 30%);
     background-size: $background-size $background-size;
 
@@ -45,8 +45,9 @@
     background-position-y: top;
 
     img {
-      top: pxToRem(-35);
+      top: 0;
       right: pxToRem(-75);
+      transform: scale(1.15);
     }
   }
 }
@@ -67,6 +68,7 @@
 
   @include mq(lg) {
     text-align: left;
+    margin-bottom: pxToRem(25);
   }
 }
 
@@ -88,5 +90,6 @@
     padding: 0;
     padding-right: pxToRem(100);
     text-align: left;
+    margin-bottom: pxToRem(30);
   }
 }
