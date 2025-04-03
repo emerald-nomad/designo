@@ -8,7 +8,6 @@ interface AttributesListProps {
 }
 
 export default function AttributesList({ content }: AttributesListProps) {
-  content.list;
   return (
     <ul className={styles["attributes-list"]}>
       {content.list.map((item) => (
