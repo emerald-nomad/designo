@@ -39,4 +39,9 @@ export const PageLinksCollection: CollectionConfig = {
       ],
     },
   ],
+  access: {
+    create: ({ req: { user } }) => Boolean(user && user.role == "admin"),
+    delete: ({ req: { user } }) => Boolean(user && user.role == "admin"),
+    update: ({ req: { user } }) => Boolean(user && user.role == "admin"),
+  },
 };

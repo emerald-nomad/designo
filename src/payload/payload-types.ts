@@ -94,9 +94,11 @@ export interface Config {
   };
   globals: {
     header: Header;
+    footer: Footer;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
@@ -224,6 +226,7 @@ export interface Page {
  */
 export interface User {
   id: number;
+  role: 'admin' | 'demo';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -353,6 +356,7 @@ export interface PageLinksSelect<T extends boolean = true> {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -413,6 +417,44 @@ export interface Header {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  logo: number | Media;
+  navItems?:
+    | {
+        page?: (number | null) | Page;
+        id?: string | null;
+      }[]
+    | null;
+  cta: {
+    title: string;
+    info: string;
+    link: {
+      text: string;
+      url: number | Page;
+    };
+    pages: (number | Page)[];
+  };
+  address: {
+    title: string;
+    addressLine1: string;
+    addressLine2?: string | null;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  contactUs: {
+    title: string;
+    phone: string;
+    email: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -422,6 +464,52 @@ export interface HeaderSelect<T extends boolean = true> {
     | {
         page?: T;
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  logo?: T;
+  navItems?:
+    | T
+    | {
+        page?: T;
+        id?: T;
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        info?: T;
+        link?:
+          | T
+          | {
+              text?: T;
+              url?: T;
+            };
+        pages?: T;
+      };
+  address?:
+    | T
+    | {
+        title?: T;
+        addressLine1?: T;
+        addressLine2?: T;
+        city?: T;
+        state?: T;
+        zip?: T;
+      };
+  contactUs?:
+    | T
+    | {
+        title?: T;
+        phone?: T;
+        email?: T;
       };
   updatedAt?: T;
   createdAt?: T;

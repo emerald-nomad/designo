@@ -1,0 +1,6 @@
+@use "@/styles/mixins" as *;
+
+.footer {
+  margin-top: pxToRem(20);
+  background: var(--color-black);
+}

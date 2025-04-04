@@ -31,4 +31,7 @@ export const HeaderGlobal: GlobalConfig = {
   hooks: {
     afterChange: [afterChangeHook],
   },
+  access: {
+    update: ({ req: { user } }) => Boolean(user && user.role === "admin"),
+  },
 };

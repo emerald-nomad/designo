@@ -15,11 +15,18 @@ import { PagesCollections } from "./collections/Page";
 import { PageLinksCollection } from "./collections/PageLink";
 import { pageLinkList } from "./block/PageLinkList";
 import { attributesList } from "./block/AttributesList";
+import { FooterGlobal } from "./globals/Footer";
+import { UsersCollection } from "./collections/User";
 
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
-  globals: [HeaderGlobal],
-  collections: [MediaCollection, PagesCollections, PageLinksCollection],
+  globals: [HeaderGlobal, FooterGlobal],
+  collections: [
+    MediaCollection,
+    PagesCollections,
+    PageLinksCollection,
+    UsersCollection,
+  ],
   blocks: [attributesList, heroLarge, pageLinkList],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
