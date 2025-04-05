@@ -23,8 +23,9 @@ export const heroLarge: Block = {
           required: true,
         },
         {
-          name: "url",
-          type: "text",
+          name: "page",
+          type: "relationship",
+          relationTo: "pages",
           required: true,
         },
         {

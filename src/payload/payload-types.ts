@@ -170,12 +170,25 @@ export interface HeroLarge {
   subTitle: string;
   link: {
     text: string;
-    url: string;
+    page: number | Page;
     openInNewTab?: boolean | null;
   };
   id?: string | null;
   blockName?: string | null;
   blockType: 'heroLarge';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  name: string;
+  slug: string;
+  content?: (AttributesList | HeroLarge | PageLinkList)[] | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -206,19 +219,6 @@ export interface PageLink {
   };
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  name: string;
-  slug: string;
-  content?: (AttributesList | HeroLarge | PageLinkList)[] | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -433,7 +433,7 @@ export interface Footer {
     info: string;
     link: {
       text: string;
-      url: number | Page;
+      page: number | Page;
     };
     pages: (number | Page)[];
   };
@@ -490,7 +490,7 @@ export interface FooterSelect<T extends boolean = true> {
           | T
           | {
               text?: T;
-              url?: T;
+              page?: T;
             };
         pages?: T;
       };

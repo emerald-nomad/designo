@@ -44,7 +44,7 @@ export const FooterGlobal: GlobalConfig = {
               required: true,
             },
             {
-              name: "url",
+              name: "page",
               type: "relationship",
               relationTo: "pages",
               required: true,
