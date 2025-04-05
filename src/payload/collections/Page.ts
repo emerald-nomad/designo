@@ -1,4 +1,12 @@
-import { CollectionConfig } from "payload";
+import { CollectionAfterChangeHook, CollectionConfig } from "payload";
+import { Page } from "../payload-types";
+import { revalidatePage } from "@/actions/revalidatePage";
+
+const afterChangeHook: CollectionAfterChangeHook<Page> = async ({ doc }) => {
+  await revalidatePage(doc.slug);
+
+  return doc;
+};
 
 export const PagesCollections: CollectionConfig = {
   slug: "pages",
@@ -30,5 +38,8 @@ export const PagesCollections: CollectionConfig = {
     create: ({ req: { user } }) => Boolean(user && user.role == "admin"),
     delete: ({ req: { user } }) => Boolean(user && user.role == "admin"),
     update: ({ req: { user } }) => Boolean(user && user.role == "admin"),
+  },
+  hooks: {
+    afterChange: [afterChangeHook],
   },
 };
