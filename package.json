@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate:create": "dotenv -e .env.local -- cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload migrate:create"
+    "migrate:create": "dotenv -e .env.local -- cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload migrate:create",
+    "migrate": "dotenv -e .env.local -- cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload migrate"
   },
   "dependencies": {
     "@payloadcms/db-vercel-postgres": "^3.31.0",
