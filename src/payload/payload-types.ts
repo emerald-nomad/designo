@@ -226,7 +226,7 @@ export interface Page {
  */
 export interface User {
   id: number;
-  role: 'admin' | 'demo';
+  role?: ('admin' | 'demo') | null;
   updatedAt: string;
   createdAt: string;
   email: string;
