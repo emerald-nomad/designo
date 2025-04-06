@@ -1,6 +1,6 @@
 import { buildConfig } from "payload";
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
-import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+// import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import {
   FixedToolbarFeature,
   lexicalEditor,
