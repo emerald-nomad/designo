@@ -2,7 +2,9 @@ import { CollectionConfig } from "payload";
 
 export const MediaCollection: CollectionConfig = {
   slug: "media",
-  upload: true,
+  upload: {
+    staticDir: "public",
+  },
   fields: [
     {
       name: "alt",
