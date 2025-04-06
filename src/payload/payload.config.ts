@@ -1,6 +1,6 @@
 import { buildConfig } from "payload";
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
-// import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import {
   FixedToolbarFeature,
   lexicalEditor,
@@ -40,17 +40,17 @@ export default buildConfig({
     schemaName: "designo",
   }),
   plugins: [
-    // vercelBlobStorage({
-    //   cacheControlMaxAge: 60 * 60 * 24 * 365, // 1 year
-    //   collections: {
-    //     media: {
-    //       generateFileURL: ({ filename }) =>
-    //         `https://l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com/${filename}`,
-    //     },
-    //   },
-    //   enabled: Boolean(process.env.BLOB_STORAGE_ENABLED) || false,
-    //   token: process.env.BLOB_READ_WRITE_TOKEN || "",
-    // }),
+    vercelBlobStorage({
+      cacheControlMaxAge: 60 * 60 * 24 * 365, // 1 year
+      collections: {
+        media: {
+          generateFileURL: ({ filename }) =>
+            `https://l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com/${filename}`,
+        },
+      },
+      enabled: Boolean(process.env.BLOB_STORAGE_ENABLED) || false,
+      token: process.env.BLOB_READ_WRITE_TOKEN || "",
+    }),
   ],
   sharp,
   typescript: {
