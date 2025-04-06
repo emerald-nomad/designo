@@ -44,8 +44,9 @@ export default buildConfig({
       cacheControlMaxAge: 60 * 60 * 24 * 365, // 1 year
       collections: {
         media: {
-          generateFileURL: ({ filename }) =>
-            `https://l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com/${filename}`,
+          generateFileURL: ({ filename, prefix }) =>
+            `https://l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com${prefix}/${filename}`,
+          prefix: process.env.BLOB_PREFIX as string,
         },
       },
       enabled: Boolean(process.env.BLOB_STORAGE_ENABLED) || false,
