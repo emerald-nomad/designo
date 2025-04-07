@@ -45,7 +45,7 @@ export default buildConfig({
       collections: {
         media: {
           generateFileURL: ({ filename, prefix }) =>
-            `https://l8vv6jxo8e4sjnrh.public.blob.vercel-storage.com${prefix}/${filename}`,
+            `https://${process.env.BLOB_STORE_ID}.public.blob.vercel-storage.com/${prefix}/${filename}`,
           prefix: process.env.BLOB_PREFIX as string,
         },
       },
