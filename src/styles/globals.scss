@@ -34,7 +34,7 @@
 html,
 body,
 main {
-  height: 100%;
+  min-height: 100%;
 }
 
 img,
@@ -85,7 +85,7 @@ h3 {
   letter-spacing: pxToRem(5);
 }
 
-.disable-scroll {
-  height: 100%;
-  overflow: hidden;
-}
+// .disable-scroll {
+//   height: 100%;
+//   overflow: hidden;
+// }

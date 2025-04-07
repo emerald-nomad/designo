@@ -116,6 +116,27 @@ export const FooterGlobal: GlobalConfig = {
         },
       ],
     },
+    {
+      name: "socialLinks",
+      type: "array",
+      fields: [
+        {
+          name: "href",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "icon",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+        {
+          name: "openInNewTab",
+          type: "checkbox",
+        },
+      ],
+    },
   ],
   access: {
     update: ({ req: { user } }) => Boolean(user && user.role === "admin"),

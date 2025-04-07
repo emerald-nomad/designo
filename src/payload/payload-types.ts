@@ -452,6 +452,14 @@ export interface Footer {
     phone: string;
     email: string;
   };
+  socialLinks?:
+    | {
+        href: string;
+        icon: number | Media;
+        openInNewTab?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -512,6 +520,14 @@ export interface FooterSelect<T extends boolean = true> {
         title?: T;
         phone?: T;
         email?: T;
+      };
+  socialLinks?:
+    | T
+    | {
+        href?: T;
+        icon?: T;
+        openInNewTab?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;

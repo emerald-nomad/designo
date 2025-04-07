@@ -1,4 +1,4 @@
-@use "../../styles//mixins" as *;
+@use "@/styles//mixins" as *;
 
 .button {
   border: none;
@@ -12,6 +12,7 @@
   border-radius: pxToRem(8);
   cursor: pointer;
   color: var(--color-dark-grey);
+  text-decoration: none;
 
   &.peach {
     color: var(--color-white);

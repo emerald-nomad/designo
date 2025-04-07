@@ -1,7 +1,7 @@
 import { Jost } from "next/font/google";
 import "@/styles/globals.scss";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={`${jost.variable}`}>
         <Header />
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
