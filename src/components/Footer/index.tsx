@@ -51,7 +51,7 @@ export default async function Footer() {
           {socialLinks?.map((link) => {
             const icon = link.icon as Media;
             return (
-              <li>
+              <li key={link.id}>
                 <Link
                   href={link.href}
                   target={link.openInNewTab ? "_blank" : undefined}
