@@ -4,11 +4,12 @@ import styles from "./Footer.module.scss";
 import Image from "next/image";
 import { Media, Page } from "@/payload/payload-types";
 import Link from "next/link";
+import CTA from "./CTA";
 
 export default async function Footer() {
   const payload = await getPayload({ config });
 
-  const { logo, navItems, address, contactUs, socialLinks } =
+  const { logo, navItems, address, contactUs, socialLinks, cta } =
     await payload.findGlobal({
       slug: "footer",
     });
@@ -17,6 +18,7 @@ export default async function Footer() {
 
   return (
     <footer className={styles.footer}>
+      <CTA {...cta} />
       <div className={styles.top}>
         <Image src={url!} alt={alt} width={200} height={24} />
         <hr className={styles.divider} />
