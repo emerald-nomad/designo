@@ -130,8 +130,14 @@
   $mobile-cta-offset: pxToRem(64);
   $tablet-cta-offset: pxToRem(80);
 
+  background-color: var(--color-peach);
+  background-image: url("/images/bg-pattern-call-to-action.svg");
+  background-repeat: no-repeat;
+
+  background-size: 220%;
+  background-position: 35% 50%;
+
   color: var(--color-white);
-  background: var(--color-peach);
   padding: pxToRem(64) pxToRem(24);
   width: 100%;
   text-align: center;
@@ -166,6 +172,9 @@
   @include mq(md) {
     transform: translateY(calc(-75% - $tablet-cta-offset));
     margin-bottom: pxToRem(-340);
+
+    background-size: cover;
+    background-position: 0 50%;
 
     & .title {
       max-width: pxToRem(275);
