@@ -28,7 +28,12 @@ export const PagesCollections: CollectionConfig = {
       name: "content",
       type: "blocks",
       blocks: [],
-      blockReferences: ["attributesList", "heroLarge", "pageLinkList"],
+      blockReferences: [
+        "attributesList",
+        "heroLarge",
+        "heroSmall",
+        "pageLinkList",
+      ],
     },
   ],
   versions: {

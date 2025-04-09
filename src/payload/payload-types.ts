@@ -68,6 +68,7 @@ export interface Config {
   blocks: {
     attributesList: AttributesList;
     heroLarge: HeroLarge;
+    heroSmall: HeroSmall;
     pageLinkList: PageLinkList;
   };
   collections: {
@@ -186,10 +187,22 @@ export interface Page {
   id: number;
   name: string;
   slug: string;
-  content?: (AttributesList | HeroLarge | PageLinkList)[] | null;
+  content?: (AttributesList | HeroLarge | HeroSmall | PageLinkList)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "heroSmall".
+ */
+export interface HeroSmall {
+  title: string;
+  subTitle: string;
+  backgroundImage?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroSmall';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,0 +1,43 @@
+@use "@/styles/mixins" as *;
+
+.hero-small {
+  margin: 0 pxToRem(-24);
+  color: var(--color-white);
+  background-color: var(--color-peach);
+  padding: pxToRem(105) pxToRem(24);
+  text-align: center;
+  background-position: top right;
+  background-repeat: none;
+
+  .title {
+    font-size: pxToRem(32);
+    font-weight: var(--font-weight-medium);
+    line-height: pxToRem(36);
+    margin-bottom: pxToRem(24);
+  }
+
+  .subTitle {
+    font-size: pxToRem(15);
+    line-height: pxToRem(25);
+    max-width: pxToRem(350);
+    margin: 0 auto;
+  }
+
+  @include mq(md) {
+    margin: 0;
+    border-radius: pxToRem(15);
+    background-size: 125vw;
+    background-position: 40vw 50%;
+
+    .title {
+      font-size: pxToRem(48);
+      line-height: pxToRem(48);
+    }
+
+    .subTitle {
+      font-size: pxToRem(16);
+      line-height: pxToRem(26);
+      max-width: pxToRem(400);
+    }
+  }
+}
