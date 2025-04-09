@@ -33,6 +33,7 @@ export const PagesCollections: CollectionConfig = {
         "heroLarge",
         "heroSmall",
         "pageLinkList",
+        "projectCardList",
       ],
     },
   ],

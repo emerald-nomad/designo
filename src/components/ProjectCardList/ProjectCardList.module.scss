@@ -1,0 +1,76 @@
+@use "@/styles/mixins" as *;
+
+.project-card-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(40);
+
+  @include mq(lg) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card-list-item {
+  border-radius: pxToRem(15);
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    .content {
+      background-color: var(--color-peach);
+      color: var(--color-white);
+    }
+
+    .title {
+      color: inherit;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include mq(lg) {
+    display: initial;
+  }
+}
+
+.content {
+  padding: pxToRem(32) pxToRem(30);
+  background-color: #fdf3f0;
+  text-align: center;
+
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @include mq(lg) {
+    display: block;
+  }
+}
+
+.title {
+  color: var(--color-peach);
+  font-weight: var(--font-weight-medium);
+  font-size: pxToRem(20);
+  line-height: pxToRem(26);
+  letter-spacing: pxToRem(5);
+  margin-bottom: pxToRem(16);
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: pxToRem(16);
+  line-height: pxToRem(26);
+}

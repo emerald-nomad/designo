@@ -8,9 +8,13 @@
   gap: pxToRem(24);
 
   @include mq(lg) {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
+    flex-direction: row;
+
+    &.grid {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto;
+    }
   }
 }
 

@@ -5,6 +5,7 @@ import PageLinkList from "../PageLinkList";
 import styles from "./Pagebuilder.module.scss";
 import AttributesList from "../AttributesList";
 import HeroSmall from "../HeroSmall";
+import ProjectCardList from "../ProjectCardList";
 
 interface PageBuilderProps {
   content: Page["content"];
@@ -23,6 +24,8 @@ export default function PageBuilder(props: PageBuilderProps) {
         return <HeroSmall key={item.id} content={item} />;
       case "pageLinkList":
         return <PageLinkList key={item.id} content={item} />;
+      case "projectCardList":
+        return <ProjectCardList key={item.id} content={item} />;
     }
   }
   return (

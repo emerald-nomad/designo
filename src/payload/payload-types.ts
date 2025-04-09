@@ -70,6 +70,7 @@ export interface Config {
     heroLarge: HeroLarge;
     heroSmall: HeroSmall;
     pageLinkList: PageLinkList;
+    projectCardList: ProjectCardList;
   };
   collections: {
     media: Media;
@@ -187,7 +188,7 @@ export interface Page {
   id: number;
   name: string;
   slug: string;
-  content?: (AttributesList | HeroLarge | HeroSmall | PageLinkList)[] | null;
+  content?: (AttributesList | HeroLarge | HeroSmall | PageLinkList | ProjectCardList)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -233,6 +234,21 @@ export interface PageLink {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projectCardList".
+ */
+export interface ProjectCardList {
+  projects: {
+    image: number | Media;
+    title: string;
+    description: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectCardList';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

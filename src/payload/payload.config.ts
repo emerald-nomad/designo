@@ -18,6 +18,7 @@ import { attributesList } from "./block/AttributesList";
 import { FooterGlobal } from "./globals/Footer";
 import { UsersCollection } from "./collections/User";
 import { heroSmall } from "./block/HeroSmall";
+import { projectCardList } from "./block/ProjectCardList";
 
 export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
@@ -28,7 +29,7 @@ export default buildConfig({
     PageLinksCollection,
     UsersCollection,
   ],
-  blocks: [attributesList, heroLarge, heroSmall, pageLinkList],
+  blocks: [attributesList, heroLarge, heroSmall, pageLinkList, projectCardList],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,

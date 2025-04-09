@@ -13,7 +13,9 @@ interface PageLinkListProps {
 export default function PageLinkList({ content }: PageLinkListProps) {
   return (
     <section>
-      <ul className={styles["page-link-list"]}>
+      <ul
+        className={`${styles["page-link-list"]} ${content.links.length > 2 && styles.grid}`}
+      >
         {content.links.map(({ link, id }, index) => (
           <PageLinkListItem
             key={id}
